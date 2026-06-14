@@ -1,0 +1,133 @@
+/* -------------------------------------------------------------------------- */
+/* SCHEDULE PAGE STYLES                                                       */
+/* -------------------------------------------------------------------------- */
+
+/* Header Background */
+body.schedule header {
+  background-image: url('../assets/backgrounds/schedule.jpg');
+}
+
+/* -------------------------------------------------------------------------- */
+/* TIMELINE COMPONENT                                                         */
+/* -------------------------------------------------------------------------- */
+
+/* Timeline Container */
+#timeline {
+  width: 100%;
+  margin: 30px auto;
+  position: relative;
+  padding: 0 10px;
+  transition: all .4s ease;
+  box-sizing: border-box;
+}
+
+/* Box Sizing Reset for Timeline Children */
+#timeline * {
+  box-sizing: border-box;
+}
+
+/* Vertical Central Line */
+#timeline::before {
+  content: '';
+  width: 3px;
+  height: 100%;
+  background: var(--accent);
+  left: 50%;
+  top: 0;
+  position: absolute;
+  transform: translateX(-50%);
+}
+
+/* Individual Timeline Event Wrapper */
+.timeline-item {
+  margin-bottom: 50px;
+  position: relative;
+}
+
+/* Clearfix for Floated Content */
+.timeline-item::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+/* Central Dot/Icon */
+.timeline-icon {
+  background: var(--surface);
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 16px;
+  left: 50%;
+  margin-left: -10px;
+  border-radius: 50%;
+  border: 4px solid var(--accent);
+  z-index: 10;
+  box-shadow: 0 0 0 3px var(--surface); /* Creates gap effect around line */
+}
+
+/* Content Box (Left Side by Default) */
+.timeline-content {
+  width: 45%;
+  position: relative;
+  overflow: visible;
+}
+
+/* Arrow Pointer (Left Content) */
+.timeline-content::before {
+  content: '';
+  position: absolute;
+  left: 100%;
+  top: 20px;
+  width: 0;
+  height: 0;
+  border-top: 7px solid transparent;
+  border-bottom: 7px solid transparent;
+  border-left: 7px solid var(--secondary);
+}
+
+/* Right Side Content */
+.timeline-content.right {
+  float: right;
+}
+
+/* Arrow Pointer (Right Content) */
+.timeline-content.right::before {
+  content: '';
+  right: 100%;
+  left: auto;
+  border-left: 0;
+  border-right: 7px solid var(--secondary);
+}
+
+@media screen and (max-width: 768px) {
+  #timeline {
+    margin: 30px auto;
+    width: 90%;
+    max-width: 768px;
+  }
+
+  #timeline::before {
+    left: 29px;
+    transform: translateX(-50%);
+  }
+
+  .timeline-item .timeline-content {
+    width: calc(100% - 60px);
+    float: right;
+  }
+
+  .timeline-item .timeline-content::before,
+  .timeline-item .timeline-content.right::before {
+    left: auto;
+    right: 100%;
+    border-left: 0;
+    border-right: 7px solid var(--secondary);
+  }
+
+  .timeline-item .timeline-icon {
+    left: 29px;
+    margin-left: -10px;
+    transform: translateX(-50%);
+  }
+}

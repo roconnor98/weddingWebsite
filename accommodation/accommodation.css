@@ -1,0 +1,278 @@
+/* -------------------------------------------------------------------------- */
+/* ACCOMMODATION PAGE STYLES                                                  */
+/* -------------------------------------------------------------------------- */
+
+/* Header Background for Accommodation Page */
+body.accommodation header {
+   background-image: url('../assets/backgrounds/accommodation.jpg');
+   /* This was added because after 1000px width the background begins to crop horizontally. 
+   This line means it crops from the bottom (i.e. keeps the top which was more important in this specific image).*/
+background-position: top;
+}
+
+/* Room Images */
+.room-image {
+   width: 100%;
+   aspect-ratio: 3 / 2;
+   object-fit: cover;
+}
+
+/* -------------------------------------------------------------------------- */
+/* TAB NAVIGATION                                                             */
+/* -------------------------------------------------------------------------- */
+
+/* Tab Container */
+.tabs {
+   display: flex;
+   gap: 10px;
+   margin-bottom: 30px;
+   flex-wrap: wrap; /* Wraps on smaller screens */
+}
+
+/* Tab Buttons (Default State) */
+.tab-button {
+   flex: 1;
+   margin-top: 0;
+   background-color: transparent;
+   color: var(--accent);
+   border: 1px solid var(--accent);
+   font-size: 1rem;
+}
+
+/* Tab Button Hover */
+.tab-button:hover {
+   background-color: var(--accent);
+   color: var(--secondary);
+   transform: none;
+}
+
+/* Active Tab State */
+.tab-button.active {
+   background-color: var(--accent);
+   color: var(--secondary);
+   transform: none;
+   box-shadow: none;
+   cursor: default;
+}
+
+/* -------------------------------------------------------------------------- */
+/* TAB CONTENT AREA                                                           */
+/* -------------------------------------------------------------------------- */
+
+/* Hidden Content (Default) */
+.tab-content {
+   display: none;
+   background-color: var(--secondary);
+   padding: 30px;
+   border-radius: 4px;
+   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+/* Visible Content */
+.tab-content.active {
+   display: flex;
+   flex-wrap: wrap;
+   gap: 10px;
+   margin: 0 auto;
+   animation: fadeIn 0.3s ease-out; /* Add fade in for tab switch */
+}
+
+/* Tab Introduction Text */
+.tab-content>p:first-child {
+   flex: 0 0 100%;
+   text-align: center;
+   margin: 0;
+   line-height: 1.8;
+   font-size: 1.1rem;
+}
+
+/* Scroller Wrapper */
+.scroller-wrapper {
+   position: relative;
+   width: 100%;
+}
+
+
+/* Symmetrical Edge Gradient Fade Indicators */
+.scroller-wrapper::before,
+.scroller-wrapper::after {
+   content: '';
+   position: absolute;
+   top: 0;
+   height: 100%;
+   width: 50px;
+   pointer-events: none;
+   z-index: 5;
+   opacity: 0.6;
+}
+
+.scroller-wrapper::before {
+   left: 0;
+   background: linear-gradient(to left, transparent, var(--secondary));
+}
+
+.scroller-wrapper::after {
+   right: 0;
+   background: linear-gradient(to right, transparent, var(--secondary));
+}
+
+.scroller-wrapper.no-scroll::before,
+.scroller-wrapper.no-scroll::after {
+   display: none;
+}
+
+/* Card Scroller Container */
+.card-scroller {
+   display: flex;
+   overflow-x: auto;
+   gap: 20px;
+   width: 100%;
+   position: relative; /* Ensure it acts as an offset parent if needed */
+   scroll-snap-type: x mandatory;
+   -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+   padding: 20px 7.5%;
+   box-sizing: border-box;
+   align-items: stretch; /* Make cards stretch to equal heights */
+}
+
+.card-scroller.has-expanded {
+   align-items: flex-start;
+}
+
+/* Hide scrollbar but keep functionality */
+.card-scroller::-webkit-scrollbar {
+   display: none;
+}
+.card-scroller {
+   -ms-overflow-style: none;
+   scrollbar-width: none;
+}
+
+/* -------------------------------------------------------------------------- */
+/* ACCORDION / EXPANDABLE CARDS                                               */
+/* -------------------------------------------------------------------------- */
+
+/* Card Styling Override */
+.display-card {
+   background: var(--secondary);
+   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+   border: 1px solid rgba(0, 0, 0, 0.05);
+   padding: 0px;
+   margin: 0px;
+   flex: 0 0 85%; /* Centered card width */
+   scroll-snap-align: center;
+   min-height: 150px;
+   border-radius: 8px;
+   display: flex;
+   flex-direction: column;
+   transition: all 0.3s ease;
+   cursor: pointer; /* Indicate it's clickable for navigation */
+   opacity: 0.6; /* Dim inactive cards */
+   -webkit-tap-highlight-color: transparent;
+}
+
+.display-card.active {
+   opacity: 1; /* Full opacity for active card */
+   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.card-header h4 {
+   margin: 0;
+   border: none;
+   padding: 15px;
+   text-align: center;
+}
+
+.accommodation #onsite .display-card .card-header {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   flex: 1 1 auto;
+   padding: 0 10px; /* preserve horizontal padding while letting vertical centering work */
+}
+
+.accommodation #onsite .display-card .card-header h4 {
+   padding: 0.75rem 0; /* vertical padding inside the centered header */
+   text-align: center;
+}
+
+/* Expanded Content Area */
+.card-details {
+   display: block; /* Content is now always visible */
+   padding: 0px 10px;
+}
+
+/* Truncated Description Text */
+.description-wrapper {
+   margin-bottom: 15px;
+}
+
+.display-card .description-text {
+   margin-top: 0;
+   margin-bottom: 0;
+   display: block;
+   line-height: 1.6;
+}
+
+.display-card .read-more-link {
+   color: var(--accent);
+   font-weight: 500;
+   cursor: pointer;
+   text-decoration: none; /* Remove default underline */
+   border-bottom: none; /* Override global link border */
+   padding: 0; /* Remove global link padding */
+   margin-left: 4px;
+   display: inline;
+   white-space: nowrap;
+   background: transparent;
+   -webkit-tap-highlight-color: transparent;
+}
+
+.display-card .read-more-link:hover {
+   color: var(--accent);
+   background: transparent; /* Override global link hover background */
+   text-decoration: none;
+}
+ 
+/* Non-active cards: make interactive children inert but keep card clickable to activate/center it */
+.display-card.inactive button,
+.display-card.inactive a,
+.display-card.inactive input,
+.display-card.inactive select,
+.display-card.inactive textarea {
+  pointer-events: none; /* Allow clicks to pass through to card element */
+  opacity: 0.6; /* Subtle visual cue */
+  cursor: default;
+}
+ 
+/* Ensure the card itself still receives pointer events so clicks center it */
+.display-card.inactive {
+  pointer-events: auto;
+}
+ 
+/* Action Buttons Container */
+.card-actions {
+   display: flex;
+   justify-content: flex-end; /* Align buttons to right */
+   gap: 15px;
+   margin: 15px 0px;
+}
+
+.card-actions button {
+   width: auto;
+   margin: 0;
+   padding: 10px 20px;
+   font-size: 0.9rem;
+}
+
+@media (max-width: 700px) {
+   .card-actions {
+      flex-direction: column;
+      gap: 10px;
+   }
+
+   .card-actions button {
+      width: 100%;
+      padding: 12px 10px;
+   }
+}

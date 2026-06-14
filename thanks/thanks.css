@@ -1,0 +1,29 @@
+/* -------------------------------------------------------------------------- */
+/* THANK YOU PAGE STYLES                                                      */
+/* -------------------------------------------------------------------------- */
+
+/* Header Background */
+body.thanks header {
+    background-image: url('../assets/backgrounds/thanks.jpg');
+    background-position: top;
+}
+
+
+/* -------------------------------------------------------------------------- */
+/* MAIN CONTENT LAYOUT                                                        */
+/* -------------------------------------------------------------------------- */
+
+/* Centered Layout Container */
+.thanks-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 40px;
+    text-align: center;
+}
+
+.thanks-container p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    text-align: center;
+}

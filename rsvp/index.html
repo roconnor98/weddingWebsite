@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RSVP</title>
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+    <link rel="stylesheet" type="text/css" href="/styles.css">
+    <link rel="stylesheet" type="text/css" href="/rsvp/rsvp.css" id="page-specific-css">
+    <script src="/config.js"></script>
+</head>
+
+<body class="rsvp">
+    <div class="text">
+        <div class="intro-section">
+            <h2>RSVP</h2>
+            <p class="subtitle">You coming???</p>
+        </div>
+
+        <div class="rsvp-container display-card">
+            <!-- Google Form Submission -->
+            <!-- Submits to a hidden iframe to prevent Googles submission redirection away from the site -->
+            <form id="rsvp-form" method="POST" target="hidden_iframe">
+                
+                <!-- Name Input -->
+                <div class="input-group">
+                    <label for="name">Who will be attending?</label>
+                    <input type="text" id="name" placeholder="Enter your full name(s)" required>
+                </div>
+
+                <!-- Email Input -->
+                <div class="input-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" placeholder="Enter your email" required>
+                </div>
+
+                <!-- Attendance Toggle -->
+                <!-- Selecting 'Yes' reveals the accommodation section via main.js -->
+                <div class="input-group" id="attendance-section">
+                    <label class="main-label">Will you be attending?</label>
+                    <div class="radio-options">
+                        <label class="radio-label">
+                            <input type="radio" class="attendance-radio" value="Yes, I'll be there" required>
+                            <span>Yes, I'll be there</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" class="attendance-radio" value="Sorry, I can't make it">
+                            <span>Sorry, I can't make it</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Conditional Accommodation Section -->
+                <!-- Initially hidden (display: none), shown if user attends -->
+                <div class="input-group" id="accommodation-section" style="display: none;">
+                    <label class="main-label">Do you require on-site accommodation?</label>
+                    <div class="radio-options">
+                        <label class="radio-label">
+                            <input type="radio" class="accommodation-radio" value="Yes">
+                            <span>Yes</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" class="accommodation-radio" value="No">
+                            <span>No</span>
+                        </label>
+                    </div>
+                </div>
+
+                <button type="submit">Send RSVP</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Hidden Iframe Target -->
+    <!-- Catches the Google Form response so the user stays on the page -->
+    <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;">
+    </iframe>
+    
+    <script src="../main.js"></script>
+</body>
+
+</html>

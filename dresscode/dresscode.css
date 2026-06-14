@@ -1,0 +1,58 @@
+/* -------------------------------------------------------------------------- */
+/* DRESS CODE PAGE STYLES                                                     */
+/* -------------------------------------------------------------------------- */
+
+/* Header Background */
+body.dresscode header {
+  background-image: url('../assets/backgrounds/dresscode.jpg');
+  background-position: top;
+}
+
+/* -------------------------------------------------------------------------- */
+/* ATTIRE CARDS LAYOUT                                                        */
+/* -------------------------------------------------------------------------- */
+
+/* Grid Container for Cards */
+.attire-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive columns */
+  gap: 30px;
+}
+
+/* Individual Attire Card */
+.attire-card {
+  padding: 40px 30px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: var(--secondary);
+}
+
+/* Hover Effect for Cards */
+.attire-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px color-mix(in srgb, var(--accent), transparent 80%);
+}
+
+/* Card Heading Styling */
+/* Override .display-card h3 global style specific for this layout*/
+.attire-card h3 {
+  color: var(--accent);
+  font-size: 1.8rem;
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+}
+
+/* Card Text */
+.attire-card p {
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+/* Additional Details Section */
+.details {
+  text-align: center;
+  border-top: 1px solid color-mix(in srgb, var(--accent), transparent 70%); /* Subtle separator */
+  padding-top: 15px;
+  font-size: 0.9rem;
+  opacity: 0.7;
+  text-transform: uppercase;
+}

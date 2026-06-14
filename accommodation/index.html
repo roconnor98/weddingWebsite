@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accommodation</title>
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+    <link rel="stylesheet" type="text/css" href="/styles.css">
+    <link rel="stylesheet" type="text/css" href="/accommodation/accommodation.css" id="page-specific-css">
+    <script src="/config.js"></script>
+</head>
+
+<body class="accommodation">
+    <div class="text">
+        <!-- Title & Subtitle Section -->
+        <div class="intro-section">
+            <h2>Accommodation</h2>
+            <p class="subtitle">We've already booked the bridal suite, no swapsies!</p>
+        </div>
+
+
+        <!-- Tab Navigation Buttons -->
+        <!-- 'onclick' triggers the openTab function in main.js to switch views -->
+        <div class="tabs">
+            <button class="tab-button active" onclick="openTab(event, 'onsite')">On-Site Accommodation</button>
+            <button class="tab-button" onclick="openTab(event, 'alternate')">Alternate Accommodation</button>
+        </div>
+
+        <!-- Tab Content: On-Site Accommodation -->
+        <!-- ID 'onsite' matches the argument in openTab call above -->
+        <div id="onsite" class="tab-content active">
+            <!-- Intro text populated from config.js -->
+            <p id="accomm-onsite-intro"></p>
+            
+            <div class="scroller-wrapper">
+                <div class="card-scroller">
+                    <!-- Card 1 -->
+                    <div class="display-card">
+                        <img src="" id="img-1" class="room-image">
+                        <div class="card-header">
+                            <h4 id="accomm-title-1"></h4>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="display-card">
+                        <img src="" id="img-2" class="room-image">
+                        <div class="card-header">
+                            <h4 id="accomm-title-2"></h4>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="display-card">
+                        <img src="" id="img-3" class="room-image">
+                        <div class="card-header">
+                            <h4 id="accomm-title-3"></h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab Content: Alternate Accommodation -->
+        <!-- ID 'alternate' matches the argument in openTab call above -->
+        <div id="alternate" class="tab-content">
+            <!-- Intro text populated from config.js -->
+            <p id="accomm-alternate-intro"></p>
+
+            <div class="scroller-wrapper">
+                <div class="card-scroller">
+                    <!-- Card 1 -->
+                    <div class="display-card">
+                        <img src="" id="alt-img-1" class="room-image">
+                        <div class="card-header">
+                            <h4 id="accomm-alt-title-1"></h4>
+                        </div>
+                        <div class="card-details">
+                            <p id="accomm-alt-desc-1" class="description-text"></p>
+                            <!-- Action buttons for external links -->
+                            <div class="card-actions">
+                                <button>Call</button>
+                                <button>Email</button>
+                                <button>More Info</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="display-card">
+                        <img src="" id="alt-img-2" class="room-image">
+                        <div class="card-header">
+                            <h4 id="accomm-alt-title-2"></h4>
+                        </div>
+                        <div class="card-details">
+                            <p id="accomm-alt-desc-2" class="description-text"></p>
+                            <div class="card-actions">
+                                <button>Call</button>
+                                <button>Email</button>
+                                <button>More Info</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="display-card">
+                        <img src="" id="alt-img-3" class="room-image">
+                        <div class="card-header">
+                            <h4 id="accomm-alt-title-3"></h4>
+                        </div>
+                        <div class="card-details">
+                            <p id="accomm-alt-desc-3" class="description-text"></p>
+                            <div class="card-actions">
+                                <button>Call</button>
+                                <button>Email</button>
+                                <button>More Info</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="display-card">
+                        <img src="" id="alt-img-4" class="room-image">
+                        <div class="card-header">
+                            <h4 id="accomm-alt-title-4"></h4>
+                        </div>
+                        <div class="card-details">
+                            <p id="accomm-alt-desc-4" class="description-text"></p>
+                            <div class="card-actions">
+                                <button>Call</button>
+                                <button>Email</button>
+                                <button>More Info</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 5 -->
+                    <div class="display-card">
+                        <img src="" id="alt-img-5" class="room-image">
+                        <div class="card-header">
+                            <h4 id="accomm-alt-title-5"></h4>
+                        </div>
+                        <div class="card-details">
+                            <p id="accomm-alt-desc-5" class="description-text"></p>
+                            <div class="card-actions">
+                                <button>Call</button>
+                                <button>Email</button>
+                                <button>More Info</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Script Logic -->
+    <script src="../main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,113 @@
+/* -------------------------------------------------------------------------- */
+/* HOME PAGE SPECIFIC STYLES                                                  */
+/* -------------------------------------------------------------------------- */
+
+/* 
+ * Header Background
+ * specific to the home page (body.home)
+ */
+body.home header {
+  background-image: url('assets/backgrounds/home.jpg');
+  height: 100%;
+  min-height: 100%;
+}
+
+/* 
+ * Main Hero Text Styling
+ * Centered over the header image
+ */
+body.home .text {
+  font-family: 'Forum', cursive;
+  position: absolute;
+  line-height: 0.9;
+  top: 37.5%;      /* Vertical positioning */
+  left: 50%;       /* Horizontal positioning start */
+  transform: translate(-50%, -50%); /* Center exact middle */
+  width: 80%;
+  margin: 0;
+  z-index: 10;     /* Ensure text is above background */
+}
+
+body.home .text h2,
+body.home .text h3,
+body.home .text h4 {
+  color: var(--surface);
+}
+
+body.home .text h2 {
+  font-size: 6rem;
+  font-weight: 400;
+  letter-spacing: 0.075em;
+  margin: 10px 0;
+  text-transform: none;
+}
+
+body.home .text h3 {
+  font-size: 2.5rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+}
+
+body.home .text h4 {
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 1.2rem;
+}
+
+/* -------------------------------------------------------------------------- */
+/* RESPONSIVE DESIGN FOR HOME HERO                                            */
+/* -------------------------------------------------------------------------- */
+
+/* Tablet/Mobile Portrait Background */
+@media screen and (max-width: 800px) {
+  body.home header {
+    background-image: url('assets/backgrounds/home-portrait.jpg');
+  }
+}
+
+/* Small Screens or Landscape Mobile */
+@media screen and ((max-height: 700px) or (max-width: 535px)) {
+  /* Hide the small "getting married" text to save space */
+  body.home .text h4 {
+    display: none;
+  }
+
+  /* Scale down fonts */
+  body.home .text h3 {
+    font-size: 2rem;
+  }
+
+  body.home .text h2 {
+    font-size: 5rem;
+  }
+}
+
+/* Very Small Screens */
+@media screen and (max-width: 400px) {
+  body.home .text h3 {
+    font-size: 1.5rem;
+  }
+
+  body.home .text h2 {
+    font-size: 4rem;
+  }
+}
+
+/* 
+ * Footer Signature 
+ * Custom color for home page (overlaying image)
+ */
+body.home .site-signature {
+  position: fixed;
+  bottom: calc(10px + env(safe-area-inset-bottom));
+  right: 15px;
+  color: var(--surface);
+  text-decoration: none;
+}
+
+body {
+   overflow: hidden;
+   height: 100svh;
+   max-height: 100svh;
+   padding-bottom: 0px;
+}

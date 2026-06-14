@@ -1,0 +1,498 @@
+/* -------------------------------------------------------------------------- */
+/* GLOBAL VARIABLES & RESET                                                   */
+/* -------------------------------------------------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Forum&family=Jost:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+:root {
+  /* Color Palette */
+  --surface: #F4F1EA;     /* Main background color (off-white/cream) */
+  --on-surface: #231F20;  /* Standard text color (dark charcoal) */
+  --accent: #AD974F;      /* Gold accent color for headings/buttons */
+  --secondary: #FFFFFF;   /* Pure white for cards/contrast elements */
+}
+
+/* Base Body Styles */
+body {
+  margin: 0px;
+  font-family: 'Jost', sans-serif;
+  letter-spacing: 1px;
+  font-weight: 300;
+  background-color: var(--surface);
+  color: var(--on-surface);
+  user-select: none;
+  word-wrap: break-word; /* Prevent long words breaking layout */
+  position: relative;
+  min-height: calc(100vh - 40px);
+  padding-bottom: 40px;
+
+  /* Global Container for text sections */
+  .text {
+    margin: 0 auto;
+    padding: 0 10%;
+    max-width: 1000px;
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/* GLOBAL HEADER & NAVIGATION STYLES                                          */
+/* -------------------------------------------------------------------------- */
+h1 {
+  font-family: 'Playfair Display', serif;
+  color: var(--accent);
+  grid-column: 2; /* Centered in grid header layout */
+  margin: 0;
+}
+
+h1 a {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Hide navigation by default (handled by media queries/JS for mobile) */
+nav {
+  display: none;
+}
+
+/* 
+ * Main Header Area 
+ * Uses CSS Grid for layout: [Menu Trigger] [Logo] [RSVP Button]
+ */
+header {
+  padding: 25px 50px 0;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-size: cover;
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  aspect-ratio: 16/9; /* Maintain cinematic aspect ratio */
+  min-height: 200px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr; /* Three-column grid */
+  align-items: center;
+  align-content: start;
+  text-align: center;
+  user-select: none;
+  font-size: 1.5rem;
+  color: var(--surface);
+  /* Inner shadow creates a vignette/darkening effect over background image */
+  box-shadow: inset 0 0 0 1000px rgba(100, 100, 100, 0.3);
+}
+
+/* -------------------------------------------------------------------------- */
+/* CARD COMPONENT STYLES                                                      */
+/* Used throughout site for content blocks                                    */
+/* -------------------------------------------------------------------------- */
+.display-card {
+  background: var(--secondary);
+  padding: 20px;
+  box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.1), 0 6px 6px -5px rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+  transition: all .3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  margin-bottom: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Hover effect for interactive cards */
+.display-card:hover {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Titles within cards */
+.display-card h3,
+.display-card h4 {
+  padding: 0;
+  background: transparent;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin: 0 0 15px 0;
+  font-weight: 500;
+  letter-spacing: 1px; /* Improved readability for uppercase */
+  border-radius: 0;
+  font-size: 1.5rem;
+  text-align: left;
+  font-family: 'Playfair Display', serif;
+  /* Subtle separator line under title */
+  border-bottom: 1px solid color-mix(in srgb, var(--accent), transparent 80%);
+  padding-bottom: 10px;
+}
+
+/* Paragraph text within cards */
+.display-card p {
+  margin-top: 15px;
+  text-align: left;
+  line-height: 1.6; /* Comfortable reading height */
+}
+
+/* Links within cards */
+.display-card a {
+  color: var(--on-surface);
+  text-decoration: none;
+  border-bottom: 2px solid var(--accent);
+  transition: all 0.2s ease;
+  padding: 0 2px;
+  font-weight: 500;
+}
+
+/* Link hover state */
+.display-card a:hover {
+  background-color: var(--accent);
+  color: var(--on-surface);
+  border-radius: 4px;
+  border-bottom-color: transparent;
+}
+
+/* -------------------------------------------------------------------------- */
+/* TYPOGRAPHY & TEXT ELEMENTS                                                  */
+/* -------------------------------------------------------------------------- */
+
+/* Main Section Heading */
+h2 {
+  margin: 40px 0 20px;
+  font-family: 'Playfair Display', serif;
+  font-size: 3.5rem;
+  text-align: center;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  color: var(--accent);
+  text-transform: uppercase;
+}
+
+/* Subtitles (usually under H2) */
+.subtitle {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 1.2rem;
+  color: var(--accent);
+}
+
+/* Secondary Headings */
+h3 {
+  font-size: 2rem;
+  text-align: center;
+  color: var(--on-surface);
+  font-weight: 300;
+  user-select: none;
+}
+
+h4 {
+  font-size: 1.8rem;
+  text-align: center;
+  color: var(--on-surface);
+  font-weight: 300;
+}
+
+/* -------------------------------------------------------------------------- */
+/* NAVIGATION MENU (DESKTOP)                                                  */
+/* -------------------------------------------------------------------------- */
+
+/* Navigation Container */
+.menu {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: auto;
+  grid-column: 1; /* Aligns to left side of header grid */
+}
+
+/* Navigation List */
+.menu ul {
+  display: flex;
+  list-style: none; /* Removes bullet points */
+  padding: 0;
+  margin: 0;
+  gap: 20px; /* Space between menu items */
+}
+
+/* Navigation Links */
+.menu a {
+  text-decoration: none;
+  font-size: 0.9rem;
+  color: var(--surface);
+  transition: color 0.3s ease;
+}
+
+/* Link Hover State */
+.menu a:hover {
+  color: var(--accent);
+}
+
+/* -------------------------------------------------------------------------- */
+/* ACTION BUTTONS (RSVP)                                                      */
+/* -------------------------------------------------------------------------- */
+
+.rsvp-button {
+  background-color: transparent;
+  color: var(--surface);
+  border: 1px solid var(--surface);
+  padding: 10px 30px;
+  font-family: inherit;
+  font-size: 0.9rem;
+  letter-spacing: inherit;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  justify-self: end; /* Aligns to far right */
+  grid-column: 3;
+  z-index: 100;
+  text-decoration: none;
+  text-align: center;
+}
+
+.rsvp-button:hover {
+  background-color: var(--surface);
+  color: var(--on-surface); /* Inverts colors on hover */
+}
+
+/* -------------------------------------------------------------------------- */
+/* MOBILE MENU (HAMBURGER)                                                    */
+/* -------------------------------------------------------------------------- */
+
+/* Hamburger Icon Container */
+.ham-menu {
+  display: none; /* Hidden on desktop */
+  height: 50px;
+  width: 50px;
+  margin-right: auto;
+  position: relative;
+  z-index: 100;
+  cursor: pointer;
+}
+
+/* Hamburger Lines */
+.ham-menu span {
+  height: 5px;
+  width: 100%;
+  background-color: var(--surface);
+  border-radius: 25px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: 0.3s ease; /* Smooth animation */
+}
+
+/* Active State Color */
+.ham-menu.open span {
+  background-color: var(--accent);
+}
+
+/* Top Line Position */
+.ham-menu span:nth-child(1) {
+  top: 25%;
+}
+
+/* Bottom Line Position */
+.ham-menu span:nth-child(3) {
+  top: 75%;
+}
+
+/* 
+ * Hamburger Animation to 'X' 
+ * Transforms lines into a cross when menu is open
+ */
+
+/* Top Line Rotation */
+.ham-menu.open span:nth-child(1) {
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+/* Middle Line Fades Out */
+.ham-menu.open span:nth-child(2) {
+  opacity: 0;
+}
+
+/* Bottom Line Rotation */
+.ham-menu.open span:nth-child(3) {
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+/* -------------------------------------------------------------------------- */
+/* RESPONSIVE MEDIA QUERIES                                                   */
+/* -------------------------------------------------------------------------- */
+
+/* Large Screens (2000px+) */
+@media screen and (min-width: 2000px) {
+  .menu a {
+    font-size: 1.2rem;
+
+  }
+
+  .menu ul {
+    gap: 60px; /* Increase spacing for large screens */
+  }
+}
+
+/* Medium Screens (Header Height Adjustments) */
+@media screen and (min-width: 1000px) {
+  header {
+    height: 562.5px; /* Fixed height for aspect ratio */
+  }
+}
+
+/* Large Screens (Header Height Adjustments) */
+@media screen and (min-width: 1500px) {
+  header {
+    height: 787.5px; /* Fixed height for aspect ratio */
+  }
+}
+
+/* Tablet & Mobile (Max Width 1000px) */
+@media screen and (max-width: 1000px) {
+  nav {
+    display: flex;
+  }
+
+  /* Show Hamburger Menu */
+  .ham-menu {
+    display: block;
+  }
+
+  /* Full Screen Mobile Menu Overlay */
+  .menu {
+    background-color: var(--surface);
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: -1000px; /* Hidden off-screen by default */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 3rem;
+    transition: 0.3s ease; /* Smooth slide-in */
+    z-index: 90;
+  }
+
+  /* Slide Menu In */
+  .menu.visible {
+    left: 0;
+  }
+
+  .menu ul {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  /* Mobile Menu Link Styling */
+  .menu a {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    text-align: center;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    color: var(--accent);
+    text-transform: uppercase;
+  }
+
+  header {
+    padding: 25px 25px 0;
+    width: 100%;
+  }
+}
+
+/* Small Mobile Screens (Max Width 500px) */
+@media screen and (max-width: 500px) {
+  header {
+    font-size: 1.1rem;
+  }
+
+  .rsvp-button {
+    padding: 7.5px 15px;
+    font-size: 0.75rem;
+  }
+
+  /* Smaller Hamburger Icon */
+  .ham-menu {
+    height: 30px;
+    width: 30px;
+  }
+
+  .ham-menu span {
+    height: 3px;
+    width: 100%;
+    border-radius: 15px;
+  }
+
+  /* Adjust Typography Scale */
+  h2 {
+    font-size: 2rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+  }
+
+  /* Note: Duplicate h3 selector in original CSS consolidated here */
+}
+
+
+.intro-section {
+  text-align: center;
+  margin-bottom: 40px;
+  animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* General Layout Button (Used in Forms etc.) */
+button {
+  display: block;
+  width: 100%;
+  padding: 15px;
+  background-color: var(--accent);
+  color: var(--secondary);
+  border: none;
+  border-radius: 4px;
+  font-family: 'Jost', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 30px;
+}
+
+button:hover {
+  background-color: color-mix(in srgb, var(--accent), black 10%);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+.site-signature {
+  position: absolute;
+  bottom: 10px;
+  right: 15px;
+  font-family: 'Jost', sans-serif;
+  font-size: 0.8rem;
+  color: var(--on-surface);
+  opacity: 0.6;
+  pointer-events: auto; /* allow clicking the signature link */
+  text-decoration: none; /* remove underline on link */
+  cursor: pointer;
+  z-index: 1000;
+  -webkit-tap-highlight-color: transparent;
+}

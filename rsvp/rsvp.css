@@ -1,0 +1,161 @@
+/* -------------------------------------------------------------------------- */
+/* RSVP PAGE STYLES                                                           */
+/* -------------------------------------------------------------------------- */
+
+/* Header Background */
+body.rsvp header {
+  background-image: url('../assets/backgrounds/rsvp.jpg');
+}
+
+
+/* -------------------------------------------------------------------------- */
+/* FORM ELEMENTS                                                              */
+/* -------------------------------------------------------------------------- */
+
+/* Form Container */
+.rsvp-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 40px;
+}
+
+/* Input Field Group Wrapper */
+.input-group {
+  margin-bottom: 25px;
+  text-align: left;
+}
+
+/* Labels */
+.input-group label {
+  display: block;
+  font-family: 'Jost', sans-serif;
+  margin-bottom: 8px;
+  color: var(--on-surface);
+  font-weight: 400;
+  font-size: 1rem;
+}
+
+/* -------------------------------------------------------------------------- */
+/* CUSTOM RADIO BUTTONS                                                       */
+/* -------------------------------------------------------------------------- */
+
+/* Label for Radio Button (Layout) */
+.input-group label.radio-label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  cursor: pointer;
+  font-weight: 300;
+  position: relative;
+  padding-left: 35px; /* Space for custom radio circle */
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Outer Circle (Unchecked) */
+.input-group label.radio-label span::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 20px;
+  width: 20px;
+  background-color: var(--secondary);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 50%;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+/* Inner Dot (Checked Indicator) - Hidden by default */
+.input-group label.radio-label span::after {
+  content: '';
+  position: absolute;
+  left: 5px; /* Centered in 20px parent */
+  top: 50%;
+  transform: translateY(-50%);
+  height: 10px;
+  width: 10px;
+  background-color: var(--accent);
+  border-radius: 50%;
+  opacity: 0;
+  transform: translateY(-50%) scale(0); /* Hidden state */
+  transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy animation */
+}
+
+/* Hover Effect on Radio Circle */
+.input-group label.radio-label:hover span::before {
+  border-color: var(--accent);
+}
+
+/* Selected State: Border Color */
+.input-group label.radio-label input[type="radio"]:checked+span::before {
+  border-color: var(--accent);
+}
+
+/* Selected State: Show Inner Dot */
+.input-group label.radio-label input[type="radio"]:checked+span::after {
+  opacity: 1;
+  transform: translateY(-50%) scale(1);
+}
+
+/* Focus State Accessibility */
+.input-group label.radio-label input[type="radio"]:focus+span::before {
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent), transparent 80%);
+  border-color: var(--accent);
+}
+
+/* -------------------------------------------------------------------------- */
+/* TEXT INPUTS & SELECTS                                                      */
+/* -------------------------------------------------------------------------- */
+
+/* Shared Styles for Inputs & Selects */
+.input-group input,
+.input-group select {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px 15px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  font-family: 'Jost', sans-serif;
+  font-size: 1rem;
+  background-color: var(--surface);
+  color: var(--on-surface);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Visually Hidden Radio Input (Keeps Accessibility) */
+.input-group input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+  margin: 0;
+}
+
+.input-group input:focus,
+.input-group select:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent), transparent 80%);
+  background-color: var(--secondary);
+}
+
+
+
+.radio-options {
+  margin-top: 15px;
+}
+
+.select-wrapper {
+  position: relative;
+}
+
+@media screen and (max-width: 600px) {
+  .rsvp-container {
+    padding: 25px;
+    margin: 0 10px 0 10px;
+  }
+}

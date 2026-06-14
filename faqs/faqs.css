@@ -1,0 +1,9 @@
+/* -------------------------------------------------------------------------- */
+/* FAQS PAGE STYLES                                                           */
+/* -------------------------------------------------------------------------- */
+
+/* Header Background */
+body.faqs header {
+  background-image: url('../assets/backgrounds/faqs.jpg');
+  background-position: center;
+}

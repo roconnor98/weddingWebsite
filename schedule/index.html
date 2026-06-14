@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+    <!-- Global Styles -->
+    <link rel="stylesheet" type="text/css" href="/styles.css">
+    <!-- Page Specific Styles (Schedule) -->
+    <link rel="stylesheet" type="text/css" href="/schedule/schedule.css" id="page-specific-css">
+    <script src="/config.js"></script>
+</head>
+
+<!-- Body class 'schedule' for specific background styling -->
+<body class="schedule">
+    <div class="text">
+        <div class="intro-section">
+            <h2>Schedule</h2>
+            <p class="subtitle">If you're ever lost just look for the tall guy in the immaculate tux.</p>
+        </div>
+        
+        <!-- Timeline Container -->
+        <div id="timeline">
+            <!-- Event 1: Ceremony -->
+            <div class="timeline-item">
+                <div class="timeline-icon"></div>
+                <div class="timeline-content display-card">
+                    <h3>12:30PM Sharp - Ceremony</h3>
+                    <p>
+                        <!-- Link populated by JS from config.js -->
+                        Ceremony at <a id="ceremony-link" target="_blank"></a>.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Event 2: Drinks Reception -->
+            <div class="timeline-item">
+                <div class="timeline-icon"></div>
+                <!-- 'right' class positions card on the right side of timeline (desktop) -->
+                <div class="timeline-content display-card right">
+                    <h3>3:00PM - Drinks Reception</h3>
+                    <p>
+                        <!-- Link populated by JS from config.js -->
+                        Drinks Reception in <a id="reception-link" target="_blank"></a>.<br>
+                        (17 minute drive from Ceremony)
+                    </p>
+                </div>
+            </div>
+
+            <!-- Event 3: Dinner -->
+            <div class="timeline-item">
+                <div class="timeline-icon"></div>
+                <div class="timeline-content display-card">
+                    <h3>5:00PM - Dinner</h3>
+                    <p>
+                        Dinner and Speeches.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Event 4: Dancing -->
+            <div class="timeline-item">
+                <div class="timeline-icon"></div>
+                <div class="timeline-content display-card right">
+                    <h3>7:00PM - Dancing</h3>
+                    <p>
+                        Dancing and Celebration.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- Script Logic -->
+        <script src="../main.js"></script>
+</body>
+
+</html>

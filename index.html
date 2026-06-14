@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Head section with meta tags, title, favicon, stylesheets, and config script.
+This will be the same in each html file with the variation of title and page-specific CSS -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Website</title>
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+    <link rel="stylesheet" type="text/css" href="/styles.css">
+    <link rel="stylesheet" type="text/css" href="/index.css" id="page-specific-css">
+    <script src="/config.js"></script>
+</head>
+
+<!-- Body class 'home' triggers specific background image in CSS -->
+
+<body class="home">
+    <div class="text">
+        <!-- Static Welcome Text -->
+        <h4>We're getting married!</h4>
+
+        <!-- Dynamic Wedding Title (populated from config.js) -->
+        <h2 id="wedding-title"></h2>
+
+        <!-- Dynamic Wedding Date (populated from config.js) -->
+        <h3 id="wedding-date"></h3>
+    </div>
+
+    <!-- Main Application Logic (Router, Event Listeners) -->
+    <script src="main.js"></script>
+</body>
+
+</html>

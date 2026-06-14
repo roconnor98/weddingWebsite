@@ -1,0 +1,12 @@
+[
+  {
+    "source": "/assets/<*>",
+    "status": "200",
+    "target": "https://bucket-name.s3.eu-west-1.amazonaws.com/<*>"
+  },
+  {
+    "source": "/<*>",
+    "status": "404-200",
+    "target": "/index.html"
+  }
+]
