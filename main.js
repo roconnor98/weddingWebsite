@@ -106,6 +106,12 @@ function loadPage(url, pushState = true) {
             if (newContent && currentContent) {
                 currentContent.innerHTML = newContent.innerHTML;
             }
+            
+            // Special handling for elements that are not part of the main .text container
+            const parkingFaqElement = document.getElementById('parking-faq');
+            if (parkingFaqElement && window.env.PARKING_FAQ) {
+                parkingFaqElement.textContent = window.env.PARKING_FAQ;
+            }
 
             // Update the document title to match the new page
             document.title = doc.title;
@@ -245,11 +251,12 @@ function addEnvVars() {
             }
         }
 
-        // Set Bride Name
-        if (window.env.BRIDE_NAME) {
-            const el = document.getElementById('faq-contact-name');
-            if (el) el.textContent = window.env.BRIDE_NAME;
-        }
+        // --- FAQ Text Mapping ---
+        // Map HTML IDs to keys in window.env
+        const faqMap = {
+            'faq-contact-name': 'BRIDE_NAME',
+            'parking-faq': 'PARKING_FAQ'
+        };
 
         // --- Accommodation Text Mapping ---
         // Map HTML IDs to keys in window.env
@@ -287,7 +294,17 @@ function addEnvVars() {
             'alt-img-5': 'ACCOMM_ALT_TITLE_5'
         };
 
-        // Loop through text mappings and update content
+        // Loop through FAQ mappings and update content
+        for (const [id, envKey] of Object.entries(faqMap)) {
+            if (window.env[envKey]) {
+                const element = document.getElementById(id);
+                if (element) {
+                    element.textContent = window.env[envKey];
+                }
+            }
+        }
+
+        // Loop through accommodation text mappings and update content
         for (const [id, envKey] of Object.entries(accommMap)) {
             if (window.env[envKey]) {
                 const element = document.getElementById(id);
