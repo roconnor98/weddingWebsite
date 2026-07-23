@@ -168,7 +168,6 @@ background-position: top;
    transition: all 0.3s ease;
    cursor: pointer; /* Indicate it's clickable for navigation */
    opacity: 0.6; /* Dim inactive cards */
-   -webkit-tap-highlight-color: transparent;
 }
 
 .display-card.active {
@@ -225,7 +224,6 @@ background-position: top;
    display: inline;
    white-space: nowrap;
    background: transparent;
-   -webkit-tap-highlight-color: transparent;
 }
 
 .display-card .read-more-link:hover {

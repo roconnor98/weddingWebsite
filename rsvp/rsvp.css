@@ -49,7 +49,6 @@ body.rsvp header {
   position: relative;
   padding-left: 35px; /* Space for custom radio circle */
   user-select: none;
-  -webkit-tap-highlight-color: transparent;
 }
 
 /* Outer Circle (Unchecked) */
