@@ -131,3 +131,15 @@ body.schedule header {
     transform: translateX(-50%);
   }
 }
+
+@media screen and (max-width: 375px) {
+   #timeline {
+      padding: 0;
+      width: 100%;
+   }
+
+  .timeline-item .timeline-icon {
+    left: 39px;
+    margin-left: -10px;
+   }
+}

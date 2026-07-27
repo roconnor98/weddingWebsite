@@ -93,6 +93,17 @@ body.home .text h4 {
   }
 }
 
+/* Tiny Screens */
+@media screen and (max-width: 320px) {
+  body.home .text h3 {
+    font-size: 1.25rem;
+  }
+
+  body.home .text h2 {
+    font-size: 3rem;
+  }
+}
+
 /* 
  * Footer Signature 
  * Custom color for home page (overlaying image)

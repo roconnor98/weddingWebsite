@@ -431,6 +431,14 @@ h4 {
     font-size: 1.5rem;
   }
 
+   .display-card h3 {
+    font-size: 1.25rem;
+  }
+
+   .display-card p {
+      font-size: 0.95rem;
+  }
+
   /* Note: Duplicate h3 selector in original CSS consolidated here */
 }
 

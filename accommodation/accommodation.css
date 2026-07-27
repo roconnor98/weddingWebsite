@@ -274,3 +274,9 @@ background-position: top;
       padding: 12px 10px;
    }
 }
+
+@media (max-width: 375px) {
+   .card-header h4 {
+      font-size: 1.25rem;
+   }
+}
