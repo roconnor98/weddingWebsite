@@ -24,7 +24,7 @@ A customisable, static wedding website template that uses Google Forms for RSVPs
 
 1.  **Clone the repository:**
     ```bash
-    git clone https://github.com/StartAutomating/weddingWebsite.git
+    git clone https://github.com/roconnor98/weddingWebsite.git
     cd weddingWebsite
     ```
 
